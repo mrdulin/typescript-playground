@@ -26,7 +26,7 @@ class Component {
     console.log('Component componentDidMount');
   }
   public setState(nextState: object & { [key: string]: any }) {
-    for (let x in nextState) {
+    for (const x in nextState) {
       if (nextState.hasOweProperty(x)) {
         this.state[x] = nextState[x];
       }

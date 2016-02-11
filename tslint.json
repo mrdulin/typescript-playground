@@ -24,7 +24,6 @@
     "no-namespace": false,
     "no-reference": false,
     "no-var-requires": false,
-    "arrow-parens": false,
-    "interface-name": [true, "never-prefix"]
+    "arrow-parens": false
   }
 }

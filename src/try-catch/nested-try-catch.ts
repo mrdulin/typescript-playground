@@ -1,16 +1,16 @@
-import url from "url";
+import url from 'url';
 
 function nestedTryCatch() {
   try {
-    console.log("outside try block");
+    console.log('outside try block');
     try {
-      throw new Error("inside error");
+      throw new Error('inside error');
     } catch (error) {
-      console.log("inside catch block");
+      console.log('inside catch block');
       throw error;
     }
   } catch (error) {
-    console.log("outside catch block");
+    console.log('outside catch block');
     throw error;
   }
 }

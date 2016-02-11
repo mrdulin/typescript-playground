@@ -23,10 +23,10 @@ const hero1: Hero = {
 // 类型断言实际上只有两个功能：1.编译时期的类型检查 2.开发时期的intellisense
 
 // 下面这两种写法，就算少了state字段，tslint也不会给出提示，并且使用tsc编译时也不会报错，只有第一种类型声明的形式，当少些字段时，tslint才会给出提示，并且编译时会报错
-const hero2 = <Hero>{
+const hero2 = {
   name: 'emilie',
   state: 'active'
-};
+} as Hero;
 
 const hero3 = {
   name: 'novaline',

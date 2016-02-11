@@ -1,8 +1,8 @@
 function main() {
-  if (process.env.NODE_ENV !== "production") {
-    import("./mod")
+  if (process.env.NODE_ENV !== 'production') {
+    import('./mod')
       .then(mod => {
-        console.log("mod: ", mod);
+        console.log('mod: ', mod);
         mod.print();
       })
       .catch(err => {
@@ -12,3 +12,5 @@ function main() {
 }
 
 main();
+
+export {};

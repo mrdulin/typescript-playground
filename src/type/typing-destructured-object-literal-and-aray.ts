@@ -1,8 +1,4 @@
-/**
- * Created by dulin on 2017/6/27.
- */
 namespace typingDestructuredObjectLiteralAndArray {
-
   const action = {
     type: 'SEARCH/QUERY_BOOK',
     payload: {
@@ -18,11 +14,11 @@ namespace typingDestructuredObjectLiteralAndArray {
 
   // -- 对象字面量解构赋值 --
 
-  const { total, books }: { total: number, books: string[] } = action.payload;
+  const { total, books }: { total: number; books: string[] } = action.payload;
   console.log(total, books);
 
   // -- 对象字面量解构赋值 + rest operator --
-  const { x, y, ...rest }: { x: number, y: number, [key: string]: number } = { x: 1, y: 2, z: 3, q: 4 };
+  const { x, y, ...rest }: { x: number; y: number; [key: string]: number } = { x: 1, y: 2, z: 3, q: 4 };
   console.log(rest);
 
   // -- 数组结构赋值 - 1 --
@@ -38,13 +34,8 @@ namespace typingDestructuredObjectLiteralAndArray {
   const [a, b]: [number, number] = [1, 1];
   console.log(a, b);
 
-
   // -- 下面这两种方式都不行 --
   // 因为books被类型推断成了Array<string>类型
   // const [firstBook, secondBook, lastBook]: [string, string, string] = action.payload.books;
   // const [firstBook, ...rest]: [string, string[]] = action.payload.books;
-
-
 }
-
-
