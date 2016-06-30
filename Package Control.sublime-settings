@@ -5,6 +5,17 @@
 	],
 	"installed_packages":
 	[
-		"Emmet"
+		"AutoFileName",
+		"Babel",
+		"BracketHighlighter",
+		"Color Highlighter",
+		"DocBlockr",
+		"Emmet",
+		"GitGutter",
+		"HTML-CSS-JS Prettify",
+		"Markdown Preview",
+		"Sass",
+		"SideBarEnhancements",
+		"SublimeCodeIntel"
 	]
 }
