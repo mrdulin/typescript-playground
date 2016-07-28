@@ -10,6 +10,7 @@
 		"BracketHighlighter",
 		"Color Highlighter",
 		"DocBlockr",
+		"EditorConfig",
 		"Emmet",
 		"GitGutter",
 		"HTML-CSS-JS Prettify",
@@ -18,6 +19,7 @@
 		"Package Control",
 		"Sass",
 		"SideBarEnhancements",
-		"SublimeCodeIntel"
+		"SublimeCodeIntel",
+		"TypeScript"
 	]
 }
