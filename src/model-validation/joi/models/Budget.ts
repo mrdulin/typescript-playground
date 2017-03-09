@@ -13,8 +13,7 @@ class Budget extends BaseModel {
   private name: string = '';
 
   constructor(obj?: { budgetId?: string; name: string; isExplicitlyShared?: boolean }) {
-    super();
-    super.validate(obj, Budget.schema);
+    super(obj, Budget.schema);
     Object.assign(this, obj);
   }
 }
