@@ -8,7 +8,7 @@ class Firm implements Accountable{
   }
 }
 
-class individual implements Accountable{
+class Individual implements Accountable{
   getIncome(): number{
     return 3333;
   }
@@ -20,5 +20,5 @@ class individual implements Accountable{
   Property 'getIncome' is missing in type 'FxxkZxm'.
  */
 class FxxkZxm implements Accountable{
-
+  
 }

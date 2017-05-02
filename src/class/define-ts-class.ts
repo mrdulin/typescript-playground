@@ -27,5 +27,3 @@ let human = new Human('章向明', 40);
 human.age = 42;
 //[ts] Property 'name' is protected and only accessible within class 'Human' and its subclasses.
 human.name = "SB";
-
-

@@ -5,13 +5,13 @@ interface Accountable{
 }
 
 //[ts] All declarations of 'name' must have identical modifiers
-interface Human{
+interface Animal{
   name: string;
   age: number;
 }
 
 //接口支持多继承
-interface Individual extends Accountable, Human{
+interface Individual extends Accountable, Animal{
   ssn: string;
 }
 
@@ -26,6 +26,6 @@ class Person implements Individual{
   }
 }
 
-const person = new Person();
+const me = new Person();
 
-console.log(person.getIncome());
+console.log(me.getIncome());
