@@ -1,0 +1,1 @@
+$.ajax({}) //Cannot find name '$'.
