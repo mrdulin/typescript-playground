@@ -53,3 +53,10 @@ console.log(toJSON_v4(her));
 console.log(toJSON_v4(her, {}));
 console.log(toJSON_v4(her, {pretty: false}));
 console.log('------ toJSON_v4 end ------');
+
+
+function fn_v1(opt: {name: string}) {
+  console.log(opt.name);
+}
+
+fn_v1({name: 'emilie'});
