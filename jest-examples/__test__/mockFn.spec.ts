@@ -1,3 +1,8 @@
+//模块导出使用export default ClassA, 导入使用import ClassA from '../classA'会报错\
+//https://github.com/kulshekhar/ts-jest/issues/120
+
+import {ClassA} from '../classA';
+
 describe('mockFn test suites', () => {
 
   describe('mockFn.mock.calls', () => {
@@ -135,6 +140,107 @@ describe('mockFn test suites', () => {
 
       expect(mockFn.mock.calls[0]).toEqual([3]);
       expect(mockFn.mock.calls).toHaveLength(1);
+
+    });
+
+    it('mockImplementation can also be used to mock class constructors', () => {
+    });
+
+  });
+
+  describe('mockFn.mockImplementationOnce(fn)', () => {
+
+    //给mockImplementationOnce传入一个方法，用来实现该mockFn的功能，但是只对一次调用生效，一次调用完，就清除该实现方法
+
+    it('Accepts a function that will be used as an implementation of the mock for one call to the mocked function. Can be chained so that multiple function calls produce different results.', () => {
+      const mf = jest.fn();
+      mf.mockImplementationOnce((): string => 'emilie')
+        .mockImplementationOnce((): string => 'emily is away')
+
+      expect(mf()).toBe('emilie');
+      expect(mf()).toBe('emily is away');
+      expect(mf()).toBeUndefined;
+
+      expect(mf.mock.instances).toHaveLength(3);
+      expect(mf.mock.calls[0]).toEqual([]);
+      expect(mf.mock.calls).toHaveLength(3);
+
+    });
+
+    it('When the mocked function runs out of implementations defined with mockImplementationOnce, it will execute the default implementation set with jest.fn(() => defaultValue) or .mockImplementation(() => defaultValue) if they were called', () => {
+
+      const mf = jest.fn((): string => 'default')
+      mf.mockImplementationOnce((): string => 'first call')
+        .mockImplementationOnce((): string => 'second call');
+
+      expect(mf()).toBe('first call');
+      expect(mf()).toBe('second call');
+      expect(mf()).toBe('default');
+      expect(mf()).toBe('default');
+      expect(mf()).toBe('default');
+
+      expect(mf.mock.instances).toHaveLength(5);
+      expect(mf.mock.calls).toHaveLength(5);
+      
+    });
+
+  });
+
+  describe('mockFn.mockReturnThis()', () => {
+
+    it('should be return mockFn this', () => {
+      const me: Object = {name: 'novaline'};
+
+      function sayHello(): string {
+        console.log('this', this);
+        return this.name;
+      }
+
+      const sayHelloBoundToMe = sayHello.bind(me);
+
+      const mockFn = jest.fn(sayHelloBoundToMe);
+
+      expect(mockFn.mockReturnThis()).toEqual(me);
+    });
+
+  });
+
+
+  describe('mockFn.mockReturnValue(value)', () => {
+
+    //mock一个值
+
+    // it('Deprecated: Use jest.fn(() => value) instead.', () => {
+      
+    //   const mockFn = jest.fn();
+    //   mockFn.mockReturnValue('emilie');
+
+    //   expect(mockFn()).toBe('emilie');
+    // });
+
+    it('Use jest.fn(() => value)', () => {
+
+      const mockFn = jest.fn(() => 42);
+      expect(mockFn()).toBe(42);
+
+    });
+
+  });
+
+  describe('mockFn.mockReturnValueOnce(value)', () => {
+
+    it('should be return mock value once', () => {
+
+      const mockFn = jest.fn();
+      mockFn.mockReturnValueOnce('emilie');
+
+      expect(mockFn()).toBe('emilie');
+      expect(mockFn()).toBeUndefined;
+
+      mockFn.mockReturnValueOnce('emily is away');
+      
+      expect(mockFn()).toBe('emily is away');
+      expect(mockFn()).toBeUndefined;
 
     });
 

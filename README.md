@@ -7,3 +7,5 @@
 * `ts-node file.ts`来运行例子
 
 * [ts-jest](https://github.com/kulshekhar/ts-jest)可以使用`typescript`语法来写`jest`的单元测试
+
+* `npm run test:watch`，监视文件变动重新运行单元测试
