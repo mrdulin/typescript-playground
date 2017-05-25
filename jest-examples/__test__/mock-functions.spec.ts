@@ -80,7 +80,7 @@ describe('mockFn test suites', () => {
       //在下个expect断言之前进行mockFn的清理工作
       mockFn.mockClear();
 
-      expect(mockFn.mock.calls[0]).toBeUndefined;
+      expect(mockFn.mock.calls[0]).toBeUndefined();
       expect(mockFn.mock.calls).toHaveLength(0);
 
     });
@@ -172,7 +172,7 @@ describe('mockFn test suites', () => {
 
       expect(mf()).toBe('emilie');
       expect(mf()).toBe('emily is away');
-      expect(mf()).toBeUndefined;
+      expect(mf()).toBeUndefined();
 
       expect(mf.mock.instances).toHaveLength(3);
       expect(mf.mock.calls[0]).toEqual([]);
@@ -248,12 +248,12 @@ describe('mockFn test suites', () => {
       mockFn.mockReturnValueOnce('emilie');
 
       expect(mockFn()).toBe('emilie');
-      expect(mockFn()).toBeUndefined;
+      expect(mockFn()).toBeUndefined();
 
       mockFn.mockReturnValueOnce('emily is away');
       
       expect(mockFn()).toBe('emily is away');
-      expect(mockFn()).toBeUndefined;
+      expect(mockFn()).toBeUndefined();
 
     });
 
