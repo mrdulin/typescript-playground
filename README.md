@@ -5,3 +5,5 @@
 * 慎用`git clean -f`,删除`untracked files`，删了找不回来，对于没有`local history`的编辑器，一天白干
 
 * `ts-node file.ts`来运行例子
+
+* [ts-jest](https://github.com/kulshekhar/ts-jest)可以使用`typescript`语法来写`jest`的单元测试

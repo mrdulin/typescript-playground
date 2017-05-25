@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch --verbose"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,22 @@
   },
   "homepage": "https://github.com/mrdulin/learning-typescript#readme",
   "devDependencies": {
+    "@types/jest": "^19.2.3",
+    "jest": "^20.0.4",
+    "ts-jest": "^20.0.4",
     "ts-node": "^3.0.2",
     "typescript": "^2.3.2"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
   }
 }

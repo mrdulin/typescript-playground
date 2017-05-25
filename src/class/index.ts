@@ -3,9 +3,6 @@ class App{
   public version: number = 0.1;
 }
 
-const app: App = new App();
-console.log(JSON.stringify(app));
-
 class HomeComponent{
   public name: string;
   public version: number;
@@ -15,9 +12,6 @@ class HomeComponent{
     this.version = 0.2;
   }
 }
-
-const homeComponent: HomeComponent = new HomeComponent();
-console.log(JSON.stringify(homeComponent));
 
 class Animal{
   private firstName: string;
@@ -30,6 +24,7 @@ class Animal{
 
 const zxm: Animal = new Animal('章', '向明');
 console.log(JSON.stringify(zxm));
+
 //Property 'firstName' is private and only accessible within class 'Animal'. (2341)
 // console.log(zxm.firstName);
 
@@ -42,3 +37,10 @@ class Sb{
 const yk: Sb = new Sb('yin', 'kang');
 console.log(JSON.stringify(yk));
 // console.log(yk.firstName);
+
+export {
+  App,
+  HomeComponent,
+  Animal,
+  Sb
+}

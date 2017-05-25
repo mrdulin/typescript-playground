@@ -21,8 +21,4 @@ class MathHelper{
   }
 }
 
-const math = new MathHelper();
-console.log(math.areaOfCircle(5));
-console.log(math.sayHello('novaline'));
-console.log(MathHelper.sayHi('melon kid'));
-console.log(MathHelper.PI);
+export default MathHelper;
