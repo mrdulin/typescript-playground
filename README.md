@@ -8,4 +8,4 @@
 
 * [ts-jest](https://github.com/kulshekhar/ts-jest)可以使用`typescript`语法来写`jest`的单元测试
 
-* `npm run test:watch`，监视文件变动重新运行单元测试
+* `npm run test:watch`，监视文件变动（变动是指`git`没有commit的文件）重新运行单元测试

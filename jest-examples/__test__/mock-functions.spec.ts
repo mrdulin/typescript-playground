@@ -3,6 +3,19 @@
 
 import {ClassA} from '../classA';
 
+/**
+ * mock functions
+ * 
+ * mock函数可以模拟一个函数，我们可以只模拟这个函数最终的返回值，用来隔离模块依赖。
+ * 
+ * 比如, 函数A的函数体中包含函数B，但是我们要测试的是函数A，并不关心函数B，我们只知道函数B执行后会返回一个值，这时候，我们可以通过mock函数B，mock函数B的返回值，用来测试。
+ * 相当于把函数A和函数B的依赖隔离了。
+ * 
+ * 可以通过const mockFn = jest.fn(implementation)创建mock函数，如果implementation没有指定，则调用mockFn时，返回值是undefined
+ * 
+ */
+
+
 describe('mockFn test suites', () => {
 
   describe('mockFn.mock.calls', () => {
