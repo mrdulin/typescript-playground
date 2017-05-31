@@ -3,7 +3,9 @@
     "experimentalDecorators": true,
     "allowJs": true,
     "target": "es6",
-    "sourceMap": true
+    "module": "commonjs",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "src/**/*"

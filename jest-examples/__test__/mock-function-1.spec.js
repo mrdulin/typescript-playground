@@ -1,4 +1,4 @@
-const m = require('../moduleB');
+const m = require('../moduleB.common');
 
 describe('mock function test suites', () => {
 
