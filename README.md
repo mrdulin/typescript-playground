@@ -9,3 +9,5 @@
 * [ts-jest](https://github.com/kulshekhar/ts-jest)可以使用`typescript`语法来写`jest`的单元测试
 
 * `npm run test:watch`，监视文件变动（变动是指`git`没有commit的文件）重新运行单元测试
+
+* `mock-function-xxx`，测试了在不同环境下(`es6`, `commonjs`, `ts`)，并且函数导出方式不同，能否通过`jest.fn()`进行`mock`.

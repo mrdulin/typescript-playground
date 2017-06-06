@@ -1,9 +1,8 @@
-import * as m from '../moduleB';
-// const m = require('../moduleB');
+import * as m from './module';
 
 describe('mock function test suites', () => {
 
-  //es6 module system mock moduleB.genName函数不成功
+  //es6 module system mock m.genName函数失败
   it('t-1', () => {
     m.genName = jest.fn(() => 'emilie');
     expect(jest.isMockFunction(m.genName)).toBeTruthy();

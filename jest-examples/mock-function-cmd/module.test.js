@@ -1,5 +1,6 @@
-const m = require('../moduleB.common');
+const m = require('./module');
 
+//通过common module define（通用模块定义），定义的函数可以成功的mock
 describe('mock function test suites', () => {
 
   it('t-1', () => {
@@ -21,6 +22,9 @@ describe('mock function test suites', () => {
 
   it('t-1.2', () => {
 
+    //t-1.1中, m.genName调用了mockReset，该方法并不是将mock的方法重置成原始的方法（非mock的），而是重置为mock的初始状态，即jest.fn()
+    //这时再次调用m.genName，将返回undefined
+    //所以m.genName还是mock的方法
     expect(jest.isMockFunction(m.genName)).toBeFalsy();
     
   });
@@ -29,6 +33,7 @@ describe('mock function test suites', () => {
 
     const getAgeSpy = jest.spyOn(m, 'getAge').mockImplementation(() => 99);
     expect(jest.isMockFunction(m.getAge)).toBeTruthy();
+    //在t-1.1中，m.genName被重置为jest.fn()，所以m.genName()返回undefined
     expect(m.getMessage()).toBe('Her name is emilie, age is 99');
     expect(m.getAge).toHaveBeenCalled();
 
