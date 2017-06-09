@@ -1,4 +1,4 @@
-module Geometry{
+namespace Geometry{
   export interface Vector2dInterface{
     toArray(callback: (x: number[]) => void): void;
     length(): number;

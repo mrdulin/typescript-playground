@@ -1,0 +1,6 @@
+const obj = {
+    getNumber() {
+        return 222;
+    }
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibW9kLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vbW9kLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE1BQU0sR0FBRyxHQUFHO0lBQ1YsU0FBUztRQUNQLE1BQU0sQ0FBQyxHQUFHLENBQUM7SUFDYixDQUFDO0NBQ0YsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImNvbnN0IG9iaiA9IHtcbiAgZ2V0TnVtYmVyKCk6IG51bWJlcntcbiAgICByZXR1cm4gMjIyO1xuICB9XG59O1xuXG5leHBvcnQgPSBvYmo7XG4iXX0=

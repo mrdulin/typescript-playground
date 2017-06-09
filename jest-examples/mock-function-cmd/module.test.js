@@ -4,7 +4,6 @@ const m = require('./module');
 describe('mock function test suites', () => {
 
   it('t-1', () => {
-    
     m.genName = jest.fn(() => 'emilie');
     
     expect(jest.isMockFunction(m.genName)).toBeTruthy();
