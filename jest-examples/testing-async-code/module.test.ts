@@ -29,6 +29,9 @@ describe('async code test suites', () => {
     //如果done从未被调用，该测试用例会失败
 
     it('t-2', done => {
+      //expect.assertions(number) - 在测试用例执行完毕后，验证断言执行的次数。对于测试异步代码很有用，验证在异步回调中的断言是否执行了。
+      //其实应该验证的是异步回调是否执行，如果像t-1那样错误的写法，测试用例先于异步回调执行完毕。
+      //例如下面的例子，在callback中，expect断言执行了一次。
       expect.assertions(1);
       function callback(data: User) {
         expect(data).toEqual({ name: 'novaline', age: 26 });
@@ -74,7 +77,7 @@ describe('async code test suites', () => {
     it('t-2 promise.catch', () => {
       expect.assertions(1);
       return fetchData_V2(-1).catch((e: string) => {
-        expect(e).toEqual(new Error({code: 404, msg: 'user not exist'}));
+        expect(e).toEqual(new Error('user not exist'));
       });
     });
 
@@ -86,7 +89,7 @@ describe('async code test suites', () => {
 
     it('t-4 - rejects', () => {
       expect.assertions(1);
-      return expect(fetchData_V2(-1)).rejects.toEqual(new Error({code: 404, msg: 'user not exist'}));
+      return expect(fetchData_V2(-1)).rejects.toEqual(new Error('user not exist'));
     });
 
     // async/await
@@ -101,7 +104,7 @@ describe('async code test suites', () => {
       try {
         await fetchData_V2(-1);
       } catch (e) {
-        expect(e).toEqual(new Error({code: 404, msg: 'user not exist'}));
+        expect(e).toEqual(new Error('user not exist'));
       }
 
     });

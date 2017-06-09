@@ -14,7 +14,7 @@ const fetchData_V2 = (num: number): Promise<User> => {
         const user: User = new User('novaline', 26);
         resolve(user);
       } else {
-        reject(new Error({code: 404, msg: 'user not exist'}));
+        reject(new Error('user not exist'));
       }
       
     }, 1000);
