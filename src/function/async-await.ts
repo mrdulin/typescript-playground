@@ -1,7 +1,13 @@
-const p: Promise<number> = Promise.resolve(2222);
+const fetchData = (): Promise<number> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(2222);
+    }, 200);
+  })
+};
 
 async function fn(): Promise<number> {
-  const i = await p;
+  const i = await fetchData();
   return 1 + i;
 }
 

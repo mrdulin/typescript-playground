@@ -17,3 +17,9 @@
 
 * 使用`git clean -f -n`查看可以被删除的`untracked files`。
 * 使用`git clean -f`， 删除`untracked files`。
+
+
+## 疑难杂症
+
+* 接口字符串索引签名和数字索引签名
+

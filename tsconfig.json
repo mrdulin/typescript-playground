@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
-    "target": "es6",
+    "target": "es5",
     "module": "commonjs",
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
@@ -9,6 +9,10 @@
     
     "allowJs": true,
     "checkJs": true,
+    
+    "lib": [
+      "ES2015"
+    ],
     
     "noImplicitAny": true,
     "strictNullChecks": true,
@@ -19,7 +23,7 @@
     "noUnusedParameters": true
   },
   "include": [
-    "src/**/*"
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules",

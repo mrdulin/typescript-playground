@@ -19,3 +19,27 @@ function createSquare(config: SquareConfig): {color: string, area: number} {
 }
 
 console.log(createSquare({ colour: "red", width: 100, extraData1: 'emilie', extraData2: 'I like her' }));
+
+
+// --- 可索引类型 ---
+
+// 定义一个索引类型为数字，索引返回值为字符串的索引类型
+interface StringArray{
+  [index: number]: string;
+}
+
+const arr: StringArray = ['novaline', 'emily'];
+const str: string = arr[0];
+//我们定义了StringArray接口，它具有索引签名。 这个索引签名表示了当用number去索引StringArray时会得到string类型的返回值。
+
+
+// --- 只读索引 ---
+
+//可以将索引签名设置为只读，这样就防止了给索引赋值
+interface ReadonlyStringArray{
+  readonly [index: number]: string;
+}
+
+const arr1: ReadonlyStringArray = ['emilie', 'ouba'];
+arr1[2] = 'react';
+
