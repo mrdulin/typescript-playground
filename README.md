@@ -2,6 +2,7 @@
 
 ## 食用说明：
 
+* 使用`webstorm`，`intellisense`比较强大 
 * `ts-node file.ts`来运行例子
 * [ts-jest](https://github.com/kulshekhar/ts-jest)可以使用`typescript`语法来写`jest`的单元测试
 * `npm run test:watch`，监视文件变动（变动是指`git`没有commit的文件）重新运行单元测试
@@ -14,4 +15,5 @@
 
 ## 开发中遇到的一些问题
 
-* 慎用`git clean -f`， 删除`untracked files`。
+* 使用`git clean -f -n`查看可以被删除的`untracked files`。
+* 使用`git clean -f`， 删除`untracked files`。

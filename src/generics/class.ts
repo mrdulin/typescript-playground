@@ -30,3 +30,5 @@ stringNumeric.add = function(x: string, y: string): string {
 }
 
 console.log(stringNumeric.add(stringNumeric.zeroValue, '9'));
+
+
