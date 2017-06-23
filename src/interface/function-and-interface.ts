@@ -19,3 +19,18 @@ const mySearchFn: searchFn = function(src: string, sub: string): boolean {
 
 console.log(mySearchFn('novaline', 'l ine'));
 
+
+interface IObj{
+  next(name: string): string;
+  throw?(name: string): string;
+}
+
+const obj: IObj = {
+  next(name: string): string {
+    return name;
+  }
+};
+
+console.log(obj.next('novaline'));
+
+
