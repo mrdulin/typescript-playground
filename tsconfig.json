@@ -13,6 +13,9 @@
     "lib": [
       "ES2015"
     ],
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
     
     "noImplicitAny": true,
     "strictNullChecks": true,
