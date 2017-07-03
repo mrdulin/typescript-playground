@@ -22,4 +22,6 @@
 ## 疑难杂症
 
 * 接口字符串索引签名和数字索引签名
-
+* `declare module 'xxx'`, `declare module xxx`, `declare namespace xxx`区别
+  * https://github.com/Microsoft/TypeScript/issues/13774
+  * https://stackoverflow.com/questions/41932585/what-is-the-difference-between-declare-namespace-and-declare-module

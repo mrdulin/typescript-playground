@@ -41,5 +41,5 @@ interface ReadonlyStringArray{
 }
 
 const arr1: ReadonlyStringArray = ['emilie', 'ouba'];
-arr1[2] = 'react';
+// arr1[2] = 'react';
 
