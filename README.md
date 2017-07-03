@@ -1,4 +1,4 @@
-# learning typescript
+# TypeScript Playground
 
 ## 食用说明：
 
@@ -25,3 +25,13 @@
 * `declare module 'xxx'`, `declare module xxx`, `declare namespace xxx`区别
   * https://github.com/Microsoft/TypeScript/issues/13774
   * https://stackoverflow.com/questions/41932585/what-is-the-difference-between-declare-namespace-and-declare-module
+
+
+## 其他说明
+
+* `tsc`使用`tsconfig.json`作为编译器配置，`tsconfig.json`还可以提供项目的全局配置。例如，我们可以在项目根目录下运行`tsc`，
+编译器将会递归的查找项目的根目录和子目录，并编译所有`ts`文件。
+
+* 使用`tsc --init`快速生成`tsconfig.json`文件。
+
+* `tsc`允许项目中有多个`tsconfig.json`文件，这样就可以实现不同目录下使用该目录下的`tsconfig.json`编译器配置文件进行编译。
