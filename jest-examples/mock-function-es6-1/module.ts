@@ -1,10 +1,10 @@
-function getMessage() {
+function getMessage(): string {
   return `Her name is ${genName()}, age is ${getAge()}`;
 }
 
-const genName = () => 'novaline';
+const genName = (): string => 'novaline';
 
-const getAge = () => 26;
+const getAge = (): number => 26;
 
 export default {
   getMessage,

@@ -7,6 +7,8 @@
 * [ts-jest](https://github.com/kulshekhar/ts-jest)可以使用`typescript`语法来写`jest`的单元测试
 * `npm run test:watch`，监视文件变动（变动是指`git`没有commit的文件）重新运行单元测试
 * `mock-function-xxx`，测试了在不同环境下(`es6`, `commonjs`, `ts`)，并且函数导出方式不同，能否通过`jest.fn()`进行`mock`.
+* [jest测试例子](./jest-examples)，其中`mock-function-xxx`系列，测试了在`es6`模块系统(`ts`模块系统)，`commonjs`下，
+能否成功`mock`一个函数中调用的其他函数。（__这个问题比较恶心, 有些模块的中的函数，并能成功mock__）
 
 ## 关于`typescript`的第三方库的描述文件`@types/xxx`
 
@@ -36,4 +38,5 @@
 * `Webstorm`的`typescript service`报`Warning:Cannot find parent tsconfig.json`，原因是没有在`tsconfig.json`的`include`字段中将该文件包含进去。
 例如，如果`include`字段中不包含`jest-examples/**/*`，则`jest-example`下的所有目录下的`ts`文件,编译时或者在`webstorm`中保存时,`typescript service`都会报
 这个警告。
+
 

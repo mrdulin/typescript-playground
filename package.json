@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "test": "jest --no-cache",
-    "test:w": "npm test --watch --verbose"
+    "test:w": "jest --watch --verbose"
   },
   "repository": {
     "type": "git",
