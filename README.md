@@ -31,7 +31,9 @@
 
 * `tsc`使用`tsconfig.json`作为编译器配置，`tsconfig.json`还可以提供项目的全局配置。例如，我们可以在项目根目录下运行`tsc`，
 编译器将会递归的查找项目的根目录和子目录，并编译所有`ts`文件。
-
 * 使用`tsc --init`快速生成`tsconfig.json`文件。
-
 * `tsc`允许项目中有多个`tsconfig.json`文件，这样就可以实现不同目录下使用该目录下的`tsconfig.json`编译器配置文件进行编译。
+* `Webstorm`的`typescript service`报`Warning:Cannot find parent tsconfig.json`，原因是没有在`tsconfig.json`的`include`字段中将该文件包含进去。
+例如，如果`include`字段中不包含`jest-examples/**/*`，则`jest-example`下的所有目录下的`ts`文件,编译时或者在`webstorm`中保存时,`typescript service`都会报
+这个警告。
+

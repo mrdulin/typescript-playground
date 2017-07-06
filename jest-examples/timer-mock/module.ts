@@ -1,9 +1,11 @@
-function timerGame(callback) {
+function timerGame(callback: () => void) {
   console.log('Ready....go!');
   setTimeout(() => {
     console.log('Times up -- stop!');
-    callback && callback();
+    if (callback) {
+      callback();
+    }
   }, 1000);
 }
 
-module.exports = timerGame;
+export default timerGame;

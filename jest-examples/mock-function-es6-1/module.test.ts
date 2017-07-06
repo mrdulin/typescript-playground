@@ -23,7 +23,7 @@ describe('mock function test suites', () => {
     m.genName = jest.fn(() => 'Aimee');
     expect(m.genName()).toBe('Aimee');
 
-    //mock m.genName failed
+    // mock m.genName 失败
     expect(m.getMessage()).toBe('Her name is Aimee, age is 26');
 
   });

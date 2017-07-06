@@ -1,4 +1,4 @@
-exports.getMessage = (num) => {
+exports.getMessage = function(num) {
   return `Her name is ${exports.genName(num)}, age is ${exports.getAge()}`;
 };
 

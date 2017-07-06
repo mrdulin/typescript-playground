@@ -1,5 +1,5 @@
-export class ClassA{
-  say(message) {
+export class ClassA {
+  public say(message: string): string {
     return message;
   }
 }

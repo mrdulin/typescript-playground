@@ -1,15 +1,15 @@
 class MyService {
-  getMessage(): string {
+  public getMessage(): string {
     return `Her name is ${this.genName()}, age is ${this.getAge()}`;
   }
 
-  genName(): string {
+  public genName(): string {
     return 'novaline';
   }
 
-  getAge(): number{
+  public getAge(): number {
     return 26;
   }
 }
 
-export default new MyService();
+export default MyService;

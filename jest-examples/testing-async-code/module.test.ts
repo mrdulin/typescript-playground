@@ -1,6 +1,8 @@
+///<reference path="../../node_modules/@types/jest/index.d.ts"/>
+
 import {
   fetchData,
-  fetchData_V2
+  fetchDataV2
 } from './module';
 
 import User from './User';
@@ -28,7 +30,7 @@ describe('async code test suites', () => {
     //测试用例才算执行完毕。
     //如果done从未被调用，该测试用例会失败
 
-    it('t-2', done => {
+    it('t-2', (done: jest.DoneCallback) => {
       //expect.assertions(number) - 在测试用例执行完毕后，验证断言执行的次数。对于测试异步代码很有用，验证在异步回调中的断言是否执行了。
       //其实应该验证的是异步回调是否执行，如果像t-1那样错误的写法，测试用例先于异步回调执行完毕。
       //例如下面的例子，在callback中，expect断言执行了一次。
@@ -40,7 +42,7 @@ describe('async code test suites', () => {
       fetchData(callback);
     });
 
-    it('t-3', done => {
+    it('t-3', (done: jest.DoneCallback) => {
       expect.assertions(1);
       function callback(data: User) {
         expect(data).toEqual({ name: 'novaline', age: 26 });
@@ -51,7 +53,7 @@ describe('async code test suites', () => {
 
   });
 
-  describe('fetchData_V2 promise pattern', () => {
+  describe('fetchDataV2 promise pattern', () => {
 
     //如果你的异步方法返回一个promise，测试的方式是直接在测试用例it函数中返回这个promise, jest会等待这个promise resolve，
     //如果这个promise reject了，则该测试用例失败。
@@ -60,7 +62,7 @@ describe('async code test suites', () => {
     // it('t-0', () => {
 
     //   expect.assertions(1);
-    //   fetchData_V2().then(data => {
+    //   fetchDataV2().then(data => {
     //     expect(data).toEqual({name: 'novaline', age: 26});
     //   });
 
@@ -69,14 +71,14 @@ describe('async code test suites', () => {
     // promise.then/promise.catch
     it('t-1 - promise.then' , () => {
       expect.assertions(1);
-      return fetchData_V2(1).then(data => {
+      return fetchDataV2(1).then((data: User) => {
         expect(data).toEqual({name: 'novaline', age: 26});
       });
     });
 
     it('t-2 promise.catch', () => {
       expect.assertions(1);
-      return fetchData_V2(-1).catch((e: string) => {
+      return fetchDataV2(-1).catch((e: string) => {
         expect(e).toEqual(new Error('user not exist'));
       });
     });
@@ -84,25 +86,25 @@ describe('async code test suites', () => {
     //对于Jest 20.0.0+版本, 新增了.resolves/.rejects
     it('t-3 - resolves', () => {
       expect.assertions(1);
-      return expect(fetchData_V2(1)).resolves.toEqual({name: 'novaline', age: 26});
+      return (expect(fetchDataV2(1)) as any).resolves.toEqual({name: 'novaline', age: 26});
     });
 
     it('t-4 - rejects', () => {
       expect.assertions(1);
-      return expect(fetchData_V2(-1)).rejects.toEqual(new Error('user not exist'));
+      return (expect(fetchDataV2(-1)) as any).rejects.toEqual(new Error('user not exist'));
     });
 
     // async/await
     it('t-5 - async/await', async () => {
       expect.assertions(1);
-      const user: User = await fetchData_V2(1);
+      const user: User = await fetchDataV2(1);
       expect(user).toEqual({name: 'novaline', age: 26});
     });
 
     it('t-6 - async/await try-catch', async () => {
       expect.assertions(1);
       try {
-        await fetchData_V2(-1);
+        await fetchDataV2(-1);
       } catch (e) {
         expect(e).toEqual(new Error('user not exist'));
       }

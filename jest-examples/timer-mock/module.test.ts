@@ -1,3 +1,5 @@
+///<reference path="../../node_modules/@types/jest/index.d.ts"/>
+
 const timerGame = require('./module');
 
 jest.useFakeTimers();
@@ -13,8 +15,8 @@ describe('timer mock test suites', () => {
   test('waits 1 second before ending the game', () => {
     timerGame();
     // console.log(setTimeout.mock.calls);
-    expect(setTimeout.mock.calls.length).toBe(1);
-    expect(setTimeout.mock.calls[0][1]).toBe(1000);
+    expect((setTimeout as jest.Mock<any>).mock.calls.length).toBe(1);
+    expect((setTimeout as jest.Mock<any>).mock.calls[0][1]).toBe(1000);
   });
 
   test('calls the callback after 1 second', () => {
@@ -53,4 +55,4 @@ describe('timer mock test suites', () => {
     expect(callback.mock.calls).toHaveLength(1);
 
   });
-})
+});
