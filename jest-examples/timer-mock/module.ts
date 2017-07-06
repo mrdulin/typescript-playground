@@ -8,4 +8,4 @@ function timerGame(callback: () => void) {
   }, 1000);
 }
 
-export default timerGame;
+module.exports = timerGame;

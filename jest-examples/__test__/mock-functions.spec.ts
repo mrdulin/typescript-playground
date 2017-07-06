@@ -15,7 +15,6 @@ import {ClassA} from '../classA';
  *
  */
 
-
 describe('mockFn test suites', () => {
 
   describe('mockFn.mock.calls', () => {
@@ -216,7 +215,7 @@ describe('mockFn test suites', () => {
 
       const sayHelloBoundToMe = sayHello.bind(me);
 
-      const mockFn = jest.fn(sayHelloBoundToMe);
+      const mockFn: jest.Mock<any> = jest.fn(sayHelloBoundToMe);
 
       expect(mockFn.mockReturnThis()).toEqual(me);
     });

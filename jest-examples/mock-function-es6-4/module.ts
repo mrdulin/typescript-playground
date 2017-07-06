@@ -12,4 +12,4 @@ class MyService {
   }
 }
 
-export default MyService;
+module.exports = MyService;
