@@ -43,8 +43,5 @@
       "json"
     ]
   },
-  "dependencies": {
-    "@types/jquery": "^3.2.4",
-    "jquery": "^3.2.1"
-  }
+  "dependencies": {}
 }

@@ -5,6 +5,8 @@ import * as user from './user.service';
 describe('ajax test suites', () => {
   it('works with promises', () => {
     expect.assertions(1);
-    return user.getUserName(4).then((data) => expect(data).toEqual('Mark'));
+    const p = user.getUserName(4);
+    console.log(p);
+    return p.then((data) => expect(data).toEqual('Mark'));
   });
-})
+});

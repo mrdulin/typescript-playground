@@ -1,4 +1,3 @@
-import User from '../models/User';
 import {IUser} from '../interfaces/user';
 
 const users: IUser = {

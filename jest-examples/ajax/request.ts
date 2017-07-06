@@ -1,5 +1,3 @@
-// const http = require('http');
-
 import * as http from 'http';
 
 export default function request(url: string) {
