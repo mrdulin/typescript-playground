@@ -1,17 +1,19 @@
 //ts 类的静态属性和静态方法
-class MathHelper{
+class MathHelper {
   public static PI: number = 3.1415926;
+
   public static sayHi(name: string): string {
     return `Hi! ${name}`;
   }
 
-  constructor() {}
-
-  areaOfCircle(radius: number): number {
-    return radius * radius * this.constructor['PI'];
+  constructor() {
   }
 
-  sayHello(name: string): string {
+  public areaOfCircle(radius: number): number {
+    return radius * radius * (this.constructor as any).PI;
+  }
+
+  public sayHello(name: string): string {
     //Property 'sayHi' does not exist on type 'Function'.
     // return this.constructor.sayHi(name);
 

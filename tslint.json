@@ -3,13 +3,7 @@
   "rules": {
     "object-literal-sort-keys": false,
     "object-literal-key-quotes": [true, "as-needed"],
-    "quotemark": {
-      "options": [
-        "single",
-        "jsx-double",
-        "avoid-escape"
-      ]
-    },
+    "quotemark": false,
     "trailing-comma": {
       "options": {
         "multiline": "never",
