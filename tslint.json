@@ -40,6 +40,8 @@
     "no-var-requires": false,
     "comment-format": [
       false
-    ]
+    ],
+    "prefer-const": false,
+    "one-variable-per-declaration": false
   }
 }
