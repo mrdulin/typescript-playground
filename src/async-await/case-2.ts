@@ -2,16 +2,46 @@
  * 现有A,B,C三个接口，要求使用async, await语法并行发送3个请求，并有对应的异常处理
  */
 
+interface IApiSuccessResponse {
+    errorCode: number;
+    content: any;
+}
+
+interface IError {
+    type: string;
+    err: Error;
+}
+
+interface IErrorMap {
+    [type: string]: IError;
+}
+
 const coin = () => Math.random() < 0.5;
 let errorSwitch: boolean = false;
+const ERROR_MAP: IErrorMap = {
+    A: {
+        type: 'A',
+        err: new Error('A接口请求失败')
+    },
+    B: {
+        type: 'B',
+        err: new Error('B接口请求失败')
+    },
+    C: {
+        type: 'C',
+        err: new Error('C接口请求失败')
+    }
+};
 
-const handle = (name, resolve, reject) => {
+const handle = (type, resolve, reject) => {
     setTimeout(() => {
-        console.log(name, Date.now());
+        console.log(type, Date.now());
+        const error = ERROR_MAP[type];
+        const apiRes: IApiSuccessResponse & { type: string } = { type: type.toLowerCase(), errorCode: 0, content: `${type} SUCCESS` };
         if (errorSwitch) {
-            coin() ? resolve(`${name} SUCCESS`) : reject(`${name} FAILED`);
+            coin() ? resolve(apiRes) : reject(error);
         } else {
-            resolve(`${name} SUCCESS`);
+            resolve(`${type} SUCCESS`);
         }
     }, 3000);
 };
@@ -54,46 +84,77 @@ A 1510143604977
 B 1510143607981
 C 1510143610982
 */
+interface IStateModel {
+    errorMessage?: string;
+    data?: any;
+}
 
-function setState(data, error) {
-    if (error) {
-        return console.error(error);
+interface IState {
+    [type: string]: IStateModel;
+}
+
+let state: IState = {
+    //a, b, c三个API请求结果，对应视图上三块区域，如果API请求成功，将请求结果赋值给相应的变量的data字段，如果请求失败，则将错误信息赋值给errorMessage变量
+    a: {
+        errorMessage: '',
+        data: {}
+    },
+    b: {
+        errorMessage: '',
+        data: {}
+    },
+    c: {
+        errorMessage: '',
+        data: {}
     }
-    console.log(data);
+};
+function setState(callback: (state: IState) => IState) {
+    const nextState: IState = callback.call(null, state);
+    state = nextState;
+    render();
+}
+function render() {
+    console.log('nextState: ', state);
 }
 
 async function componentDidMount() {
-    let error;
-    let a, b, c;
-    const finalResult = (await Promise.all([A(), B(), C()].map((result) => {
-        return result.catch((e) => '');
-    }))).filter((x) => x);
+    let results: IState[];
+    try {
+        results = (await Promise.all([A(), B(), C()].map((promise) => {
+            return promise
+                .then((apiRes: IApiSuccessResponse & { type: string }): IState => {
+                    return {
+                        [apiRes.type]: {
+                            data: apiRes.content
+                        }
+                    };
+                }).catch((e: IError) => {
+                    const { type, err } = e;
+                    let error: IState = {
+                        [type.toLowerCase()]: {
+                            errorMessage: err.message
+                        }
+                    };
+                    return error;
+                });
+        })));
 
-    setState(finalResult, error);
+        setState((prevState: IState): IState => {
+            let nextState: IState = {};
+            results.forEach((result: IState, idx: number) => {
+                const type = Object.keys(result)[0];
+                const data: IStateModel = result[type];
+                nextState[type] = {};
+                Object.assign(nextState[type], prevState[type], data);
+            });
+            return nextState;
+        });
+    } catch (e) {
+        console.error('API接口并发出错', e.message);
+    }
+
 }
 errorSwitch = true;
 componentDidMount();
-
-// async function componentDidMount() {
-//     let error;
-//     let deferredA = A();
-//     let deferredB = B();
-//     let deferredC = C();
-//     // let finalResult;
-//     let a, b, c;
-//     try {
-//         // finalResult = [await resultA, await resultB, await resultC];
-//         a = await deferredA;
-//         b = await deferredB;
-//         c = await deferredC;
-//     } catch (e) {
-//         error = e;
-//     }
-
-//     setState({ a, b, c }, error);
-// }
-// errorSwitch = true;
-// componentDidMount();
-
 
 export { };
