@@ -9,7 +9,7 @@ type Easing = "ease-in" | "ease-out" | "ease-in-out";
 class UIElement {
   animate(dx: number, dy: number, easing: Easing) {
     if (easing === "ease-in") {
-      
+
     }
     else if (easing === "ease-out") {
     }
@@ -28,25 +28,25 @@ button.animate(0, 0, "ease-in");
 // button.animate(0, 0, "uneasy"); // error: "uneasy" is not allowed here
 
 
-interface GameStateBarState{
+interface GameStateBarState {
   gameState: '' | 'X wins' | '0 wins' | 'Draw';
 }
 
-interface GameProps{
+interface GameProps {
   name: string;
 }
 
 class MyComponent<GameProps, GameStateBarState>{
   public state: GameStateBarState;
   public props: GameProps;
-  
+
   constructor(props: GameProps) {
-    console.log(props);    
+    console.log(props);
   }
-  
+
 }
 
-const comp = new MyComponent<GameProps, GameStateBarState>({name: 'novaline'});
+const comp = new MyComponent<GameProps, GameStateBarState>({ name: 'novaline' });
 
 
 

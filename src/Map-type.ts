@@ -15,4 +15,4 @@ const aFn = map2.get('a');
 const aValue = aFn ? aFn('react') : '';
 console.log(aValue);
 
-export {};
+export { };
