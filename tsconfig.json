@@ -6,7 +6,7 @@
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "pretty": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "allowJs": true,
     "checkJs": true,
     

@@ -9,16 +9,13 @@
       "type": "node",
       "request": "launch",
       "args": [
-        "${relativeFile}"
-      ],
-      "runtimeArgs": [
         "--nolazy",
         "-r",
-        "ts-node/register"
+        "ts-node/register",
+        "${relativeFile}"
       ],
       "sourceMaps": true,
-      "cwd": "${workspaceRoot}",
-      "protocol": "inspector"
+      "cwd": "${workspaceFolder}"
     }
   ]
 }

@@ -118,6 +118,7 @@ class Component implements INgOnInit {
   }
 
   public async ngOnInit() {
+    //fetch一个模块
     try {
       const moduleOne = await fetchModule(1);
       console.log('moduleOne: ', moduleOne);
@@ -125,6 +126,7 @@ class Component implements INgOnInit {
       console.log('moduleOne error:', e);
     }
 
+    //fetch若干模块
     const moduleById = await fetchModulesByIds(this.moduleIds);
     this.vm = Object.assign(this.vm, moduleById);
     console.log('render vm: ', this.vm);
