@@ -6,7 +6,7 @@ const map1: Map<string, string> = new Map<string, string>([
 
 console.log(map1.get('a'));
 
-const map2: Map<string, (string: string) => string> = new Map<string, (string: string) => string>([
+const map2: Map<string, (str: string) => string> = new Map<string, (str: string) => string>([
   ['a', (str: string) => str],
   ['b', (str: string) => str]
 ]);

@@ -3,7 +3,7 @@ const fetchData = (): Promise<number> => {
     setTimeout(() => {
       resolve(2222);
     }, 200);
-  })
+  });
 };
 
 async function fn(): Promise<number> {
@@ -11,4 +11,4 @@ async function fn(): Promise<number> {
   return 1 + i;
 }
 
-fn().then((num: Number) => console.log(num));
+fn().then((num: number) => console.log(num));

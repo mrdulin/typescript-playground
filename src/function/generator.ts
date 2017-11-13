@@ -1,4 +1,4 @@
-function *foo() {
+function* foo() {
   yield 1;
   yield 2;
   yield 3;
@@ -17,6 +17,6 @@ const resultList: any[] = [
   bar.next()
 ];
 
-for(let result of resultList) {
+for (let result of resultList) {
   console.log(result);
 }
