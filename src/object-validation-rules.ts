@@ -1,6 +1,3 @@
-/**
- * Created by elsa on 2017/7/9.
- */
 function validate(value: any) {
   if (!value.first) {
     return false;
@@ -20,7 +17,7 @@ interface IValidationRules {
 }
 
 interface IStringOfAny {
-  [index: string]: any
+  [index: string]: any;
 }
 
 const validationSchema: IStringOfAny = {
@@ -47,5 +44,3 @@ console.log(valdateV2(validationSchema, { first: 'Bruce' })); // false
 console.log(valdateV2(validationSchema, { first: 'Bruce', last: 'Wayne' })); // true
 
 export default valdateV2;
-
-

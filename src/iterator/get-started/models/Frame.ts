@@ -1,13 +1,9 @@
-/**
- * Created by dulin on 2017/6/20.
- */
 import { Component } from './Component';
 
 class Frame implements Iterator<Component> {
-
   private pointer: number = 0;
 
-  constructor(public name: string, public components: Component[]) { }
+  constructor(public name: string, public components: Component[]) {}
 
   public next(): IteratorResult<Component> {
     if (this.pointer < this.components.length) {
@@ -24,8 +20,4 @@ class Frame implements Iterator<Component> {
   }
 }
 
-const frame = new Frame('door', [new Component('left'), new Component('right'), new Component('top'), new Component('bottom')]);
-
-for (let i = 0; i < 5; i++) {
-  console.log(frame.next());
-}
+export { Frame };
