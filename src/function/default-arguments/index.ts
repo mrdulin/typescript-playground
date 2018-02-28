@@ -1,16 +1,19 @@
-import { MemberEntity, MemberState } from './models';
-import { IAction } from './@types';
+import { MemberEntity, MemberState } from "./models";
+import { IAction } from "./@types";
 
 const member = new MemberEntity();
 const defualtState = new MemberState(member);
 
 // 这里到底用Action<{}>还是Action<any>?
-function memberReducer(state: MemberState = defualtState, action: IAction<any>): MemberState {
+function memberReducer(
+  state: MemberState = defualtState,
+  action: IAction<any>
+): MemberState {
   let newState: MemberState;
 
   switch (action.type) {
-    case 'MEMBER_SAVE':
-      console.log('action:', JSON.stringify(action, null, 2));
+    case "MEMBER_SAVE":
+      console.log("action:", JSON.stringify(action, null, 2));
       newState = Object.assign({}, state, { saveCompleted: true });
       return newState;
     default:
@@ -20,10 +23,10 @@ function memberReducer(state: MemberState = defualtState, action: IAction<any>):
 
 function defaultFnArg(
   x: any = (function(ctx: any) {
-    console.log(ctx);
+    // console.log(ctx);
   })(global as any)
 ) {
-  console.log('main');
+  console.log("main");
 }
 
 export { memberReducer, defaultFnArg };
