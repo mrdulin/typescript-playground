@@ -45,5 +45,7 @@
       "json"
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "immutability-helper": "^2.6.4"
+  }
 }

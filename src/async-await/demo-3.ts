@@ -1,32 +1,31 @@
 // async/await的请求超时
 
-const timeout = () => new Promise((resolve, reject) => {
-  console.log('timeout timestamp: ', Date.now());
-  setTimeout(() => {
-    reject(new Error('请求超时~'));
-  }, 1000);
-});
+const timeout = () =>
+  new Promise((resolve, reject) => {
+    console.log('timeout timestamp: ', Date.now());
+    setTimeout(() => {
+      reject(new Error('请求超时~'));
+    }, 1000);
+  });
 
 const coin = () => Math.random() < 0.5;
-const request = () => new Promise((resolve, reject) => {
-  console.log('request timestamp: ', Date.now());
-  setTimeout(() => {
-    const coinValue = coin();
-    const result = coinValue ? '请求成功' : '请求失败';
-    coinValue ? resolve(result) : reject(result);
-  }, 900);
-});
+const request = () =>
+  new Promise((resolve, reject) => {
+    console.log('request timestamp: ', Date.now());
+    setTimeout(() => {
+      const coinValue = coin();
+      const result = coinValue ? '请求成功' : '请求失败';
+      coinValue ? resolve(result) : reject(result);
+    }, 900);
+  });
 
 //使用promise的方式
 const main = () => {
-  Promise.race([
-    timeout(),
-    request()
-  ])
-    .then((result) => {
+  Promise.race([timeout(), request()])
+    .then(result => {
       console.log('result', result);
     })
-    .catch((e) => {
+    .catch(e => {
       console.error(e);
     });
 };
@@ -35,7 +34,8 @@ const main = () => {
 
 //使用async/await的方式
 async function componentDidMount() {
-  let result, error;
+  let result;
+  let error;
   try {
     result = await Promise.race([request(), timeout()]);
   } catch (e) {
@@ -60,11 +60,11 @@ function timeout_v2(ms, promise) {
 }
 
 timeout_v2(1000, request())
-  .then((res) => {
+  .then(res => {
     console.log('res', res);
   })
-  .catch((err) => {
+  .catch(err => {
     console.log(err);
   });
 
-export { };
+export {};

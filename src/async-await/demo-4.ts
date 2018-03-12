@@ -32,32 +32,33 @@ const coin = (): boolean => Math.random() < 0.5;
 const apiErrorSwitch: string = 'on';
 const mockDatasBePassedToNextModule: string[] = ['react', 'angular', 'jquery'];
 
-const fetch = (id: number, data?: string | undefined): Promise<IApiResponse> => new Promise((resolve, reject) => {
-  const coinValue: boolean = coin();
-  let result: IApiResponse;
-  // console.log('coinValue: ', coinValue);
-  const baseMessage: string = `请求module:${id}数据成功`;
-  setTimeout(() => {
-    const successData: IApiResponse = {
-      message: data ? `${baseMessage}|${data}` : baseMessage,
-      errorCode: 0,
-      dataBePassedToNextModule: mockDatasBePassedToNextModule[id - 1]
-    };
-    const errorData: IApiResponse = {
-      message: `请求module:${id}数据失败`,
-      errorCode: -100
-    };
-    if (apiErrorSwitch === 'on') {
-      result = coinValue ? successData : errorData;
-    } else {
-      result = successData;
-    }
-    if (result.errorCode) {
-      reject(result);
-    }
-    resolve(successData);
-  }, 1000);
-});
+const fetch = (id: number, data?: string | undefined): Promise<IApiResponse> =>
+  new Promise((resolve, reject) => {
+    const coinValue: boolean = coin();
+    let result: IApiResponse;
+    // console.log('coinValue: ', coinValue);
+    const baseMessage: string = `请求module:${id}数据成功`;
+    setTimeout(() => {
+      const successData: IApiResponse = {
+        message: data ? `${baseMessage}|${data}` : baseMessage,
+        errorCode: 0,
+        dataBePassedToNextModule: mockDatasBePassedToNextModule[id - 1]
+      };
+      const errorData: IApiResponse = {
+        message: `请求module:${id}数据失败`,
+        errorCode: -100
+      };
+      if (apiErrorSwitch === 'on') {
+        result = coinValue ? successData : errorData;
+      } else {
+        result = successData;
+      }
+      if (result.errorCode) {
+        reject(result);
+      }
+      resolve(successData);
+    }, 1000);
+  });
 
 const fetchModule = async (id: number, data?: string | undefined): Promise<IApiResponseWithId> => {
   try {
@@ -78,7 +79,8 @@ function fetchFirstModule(idx: number): boolean {
 
 async function fetchModulesByIds(modIds: number[]): Promise<IViewModelById> {
   const moduleById: IViewModelById = {};
-  let module: IApiResponseWithId, dataBePassedToNextModule: string | undefined;
+  let module: IApiResponseWithId;
+  let dataBePassedToNextModule: string | undefined;
   let error: any;
   for (let i: number = 0, moduleIdCount: number = modIds.length; i < moduleIdCount; i++) {
     const moduleId: number = modIds[i];
@@ -135,4 +137,4 @@ class Component implements INgOnInit {
 
 const myFuckingComponent = new Component();
 
-export { };
+export {};
