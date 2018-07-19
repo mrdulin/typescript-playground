@@ -7,7 +7,7 @@ namespace defaultArgs {
       public id: number = -1,
       public login: string = '',
       public avatar_url: string = ''
-    ) { }
+    ) {}
   }
 
   class MemberState {
@@ -25,14 +25,14 @@ namespace defaultArgs {
     type: string;
   }
 
-  interface Action<Payload> extends BaseAction {
-    payload?: Payload;
-    error?: boolean;
-    meta?: any;
+  interface Action < Payload > extends BaseAction {
+    payload ? : Payload;
+    error ? : boolean;
+    meta ? : any;
   }
 
   //这里到底用Action<{}>还是Action<any>?
-  function memberReducer(state: MemberState = new MemberState(member), action: Action<any>): MemberState {
+  function memberReducer(state: MemberState = new MemberState(member), action: Action < any > ): MemberState {
     let newState: MemberState;
 
     switch (action.type) {
@@ -45,7 +45,7 @@ namespace defaultArgs {
     }
   }
 
-  const action: Action<any> = {
+  const action: Action < any > = {
     type: 'MEMBER_SAVE',
     payload: {}
   };
@@ -70,7 +70,7 @@ namespace defaultArgs {
   comp.a();
 
 
-  function main(x: any = (function (ctx: any) { console.log(ctx); })(global as any)) {
+  function main(x: any = (function(ctx: any) { console.log(ctx); })(global as any)) {
     console.log('main');
   }
 
@@ -79,7 +79,7 @@ namespace defaultArgs {
   // main(a);
   // main(b);
 
-  export { };
+  export {};
 
 }
 

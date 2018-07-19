@@ -17,4 +17,4 @@ for (let r of result) {
   console.log(r);
 }
 
-export { };
+export {};

@@ -1,12 +1,20 @@
 const state = {
-  a: { name: 'react' },
-  b: { name: 'angular' },
-  c: { name: 'rxjs' }
+  a: {
+    name: 'react'
+  },
+  b: {
+    name: 'angular'
+  },
+  c: {
+    name: 'rxjs'
+  }
 };
 
 const nextState = {
   ...state,
-  a: { name: 'jquery' }
+  a: {
+    name: 'jquery'
+  }
 };
 
 console.log(nextState);
