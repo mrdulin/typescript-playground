@@ -6,8 +6,7 @@ class MathHelper {
     return `Hi! ${name}`;
   }
 
-  constructor() {
-  }
+  constructor() {}
 
   public areaOfCircle(radius: number): number {
     return radius * radius * (this.constructor as any).PI;

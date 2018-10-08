@@ -7,3 +7,5 @@ console.log('isAdd: ', isAdd);
 if (isAdd) {
   // do something
 }
+
+export {};
