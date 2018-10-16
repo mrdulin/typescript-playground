@@ -24,7 +24,6 @@
     "no-namespace": false,
     "no-reference": false,
     "no-var-requires": false,
-    "comment-format": [false],
     "arrow-parens": false
   }
 }

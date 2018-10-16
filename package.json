@@ -1,32 +1,32 @@
 {
-  "name": "typescript-playground",
+  "name": "typescript-codelab",
   "version": "1.0.0",
   "description": "",
   "main": "",
   "scripts": {
-    "test": "jest --no-cache",
+    "test": "jest --verbose",
     "test:w": "jest --watch --verbose"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrdulin/typescript-playground.git"
+    "url": "git+https://github.com/mrdulin/typescript.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mrdulin/typescript-playground/issues"
+    "url": "https://github.com/mrdulin/typescript/issues"
   },
-  "homepage": "https://github.com/mrdulin/typescript-playground#readme",
+  "homepage": "https://github.com/mrdulin/typescript#readme",
   "devDependencies": {
     "@types/jest": "^19.2.4",
-    "@types/node": "^7.0.29",
+    "@types/node": "^7.10.0",
     "babel-cli": "^6.26.0",
     "jest": "^20.0.4",
     "ts-jest": "^20.0.6",
     "ts-node": "^3.2.0",
-    "tslint": "^5.5.0",
-    "typescript": "^2.7.0-dev.20171108"
+    "tslint": "^5.11.0",
+    "typescript": "^2.9.2"
   },
   "jest": {
     "globals": {
@@ -44,8 +44,5 @@
       "js",
       "json"
     ]
-  },
-  "dependencies": {
-    "immutability-helper": "^2.6.4"
   }
 }

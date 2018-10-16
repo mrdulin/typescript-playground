@@ -1,7 +1,6 @@
-import MathHelper from '../../src/class/class-method-and-property';
+import MathHelper from './';
 
 describe('MathHelper Class Test Suites', () => {
-
   it('should be return PI value', () => {
     expect(MathHelper.PI).toBe(3.1415926);
   });
@@ -19,5 +18,4 @@ describe('MathHelper Class Test Suites', () => {
     const mathInstance: MathHelper = new MathHelper();
     expect(mathInstance.areaOfCircle(5)).toBe(5 * 5 * 3.1415926);
   });
-
 });

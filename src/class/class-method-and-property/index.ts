@@ -1,4 +1,4 @@
-//ts 类的静态属性和静态方法
+// ts 类的静态属性和静态方法
 class MathHelper {
   public static PI: number = 3.1415926;
 
@@ -13,11 +13,11 @@ class MathHelper {
   }
 
   public sayHello(name: string): string {
-    //Property 'sayHi' does not exist on type 'Function'.
+    // Property 'sayHi' does not exist on type 'Function'.
     // return this.constructor.sayHi(name);
 
-    //使用 类名.静态属性
-    //https://github.com/Microsoft/TypeScript/issues/3836
+    // 使用 类名.静态属性
+    // https://github.com/Microsoft/TypeScript/issues/3836
     return MathHelper.sayHi(name);
   }
 }
