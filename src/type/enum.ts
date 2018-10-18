@@ -6,7 +6,6 @@ const enum CacheStoragesEnum {
 
 console.log(CacheStoragesEnum.LOCAL_STORAGE);
 
-
 enum Enum {
   A
 }

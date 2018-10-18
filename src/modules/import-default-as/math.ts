@@ -1,4 +1,4 @@
-//默认导出
+// 默认导出
 export default function cube(x: number) {
   return Math.pow(x, 3);
 }
@@ -6,5 +6,3 @@ export default function cube(x: number) {
 export function square(x: number) {
   return Math.pow(x, 2);
 }
-
-

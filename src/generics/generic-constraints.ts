@@ -1,6 +1,3 @@
-/**
- * Created by dulin on 2017/6/23.
- */
 // --- 泛型约束 ---
 
 function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
@@ -11,7 +8,7 @@ interface Ix {
   [key: string]: number;
 }
 
-const x: Ix = {a: 1, b: 2, c: 3, d: 4};
+const x: Ix = { a: 1, b: 2, c: 3, d: 4 };
 
 const aValue: number = getProperty<Ix, string>(x, 'a');
 

@@ -1,7 +1,3 @@
-/**
- * Created by dulin on 2017/7/7.
- */
-
 namespace mappedTypes {
   interface IProps {
     name: string;
@@ -15,9 +11,7 @@ namespace mappedTypes {
 
   me.name = 'sbeam';
 
-  type Readonly<T> = {
-    readonly [P in keyof T]: T[P];
-  };
+  type Readonly<T> = { readonly [P in keyof T]: T[P] };
 
   type IPropsReadOnly = Readonly<IProps>;
 
@@ -28,4 +22,3 @@ namespace mappedTypes {
 
   // he.name = 'angular';
 }
-

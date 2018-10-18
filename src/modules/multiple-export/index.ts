@@ -1,4 +1,4 @@
-//导入math.ts文件中所有导出的模块
+// 导入math.ts文件中所有导出的模块
 import * as math from './math';
 
 console.log(math.square(2));

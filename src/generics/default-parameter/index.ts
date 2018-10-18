@@ -1,3 +1,12 @@
-/**
- * Created by dulin on 2017/6/29.
- */
+interface IGreetingProps {
+  name: string;
+}
+
+class Greeting extends React.Component<IGreetingProps, any> {
+  public render(): string {
+    return 'This is a fake React component';
+  }
+}
+
+const greeting = new Greeting();
+console.log(greeting.render());

@@ -1,6 +1,6 @@
 class Hero {
-  public name: string;
-  public state: string;
+  public name: string = '';
+  public state: string = '';
 }
 
 const heroes: Hero[] = [];
