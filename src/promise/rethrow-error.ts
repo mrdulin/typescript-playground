@@ -30,3 +30,5 @@ async function UserController() {
 }
 
 UserController();
+
+export { UserController };
