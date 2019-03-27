@@ -32,3 +32,5 @@ async function otherMain() {
 
   console.log(component.parent.name);
 }
+
+export { createComponent };
