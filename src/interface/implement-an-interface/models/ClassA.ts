@@ -1,6 +1,6 @@
-import { IPrint } from '../@types';
+import { IPrintable } from '../@types';
 
-export class ClassA implements IPrint {
+export class ClassA implements IPrintable {
   public print(): void {
     console.log('ClassA.print()');
   }
