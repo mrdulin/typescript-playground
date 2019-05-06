@@ -1,5 +1,5 @@
-interface IPrint {
+interface IPrintable {
   print(): void;
 }
 
-export { IPrint };
+export { IPrintable };
