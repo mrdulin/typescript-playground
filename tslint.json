@@ -24,6 +24,7 @@
     "no-namespace": false,
     "no-reference": false,
     "no-var-requires": false,
-    "arrow-parens": false
+    "arrow-parens": false,
+    "max-classes-per-file": false
   }
 }
