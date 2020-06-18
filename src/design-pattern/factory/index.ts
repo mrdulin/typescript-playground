@@ -24,9 +24,9 @@ class PostDaoImpl extends BaseDao implements IPostDao {
 class DaoFactory {
   public static create(daoName: string): IBaseDao {
     switch (daoName) {
-      case 'user':
+      case "user":
         return new UserDaoImpl();
-      case 'post':
+      case "post":
         return new PostDaoImpl();
       default:
         throw new Error(`no DAO for daoName = ${daoName}`);
@@ -34,5 +34,5 @@ class DaoFactory {
   }
 }
 
-const userDao: IUserDao = DaoFactory.create('user');
+const userDao: IUserDao = DaoFactory.create("user");
 userDao.findByEmail();

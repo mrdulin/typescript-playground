@@ -25,9 +25,11 @@
     "@types/node": "^11.9.3",
     "faker": "^4.1.0",
     "jest": "^24.1.0",
+    "prettier": "^2.0.5",
     "ts-jest": "^23.10.5",
     "ts-node": "^8.0.2",
     "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.3.3"
   },
   "dependencies": {

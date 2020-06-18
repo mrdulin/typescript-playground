@@ -1,11 +1,11 @@
-import { Component } from './utils/Component';
-import { IComponentOpt, IHTMLELement } from './interfaces';
+import { Component } from "./utils/Component";
+import { IComponentOpt, IHTMLELement } from "./interfaces";
 
 class ListComponent extends Component {
   constructor(opt: IComponentOpt) {
     super(opt);
     this.state = {
-      items: ['react', 'typescript', 'angular']
+      items: ["react", "typescript", "angular"],
     };
   }
 
@@ -16,14 +16,14 @@ class ListComponent extends Component {
 }
 
 const list = new ListComponent({
-  el: '.list',
+  el: ".list",
   templateHtml: `
     <ul>
       <li>react</li>
       <li>typescript</>
       <li>angular</li>
     </ul>
-  `
+  `,
 });
 
 console.log(list.render());

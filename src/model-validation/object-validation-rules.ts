@@ -22,11 +22,11 @@ interface IStringOfAny {
 
 const validationSchema: IStringOfAny = {
   first: {
-    required: true
+    required: true,
   },
   last: {
-    required: true
-  }
+    required: true,
+  },
 };
 
 function valdateV2(schema: IStringOfAny, value: IStringOfAny) {

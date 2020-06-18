@@ -1,8 +1,8 @@
-import observable from './observable';
-import { IComponentOpt, IHTMLELement } from '../interfaces';
+import observable from "./observable";
+import { IComponentOpt, IHTMLELement } from "../interfaces";
 
 function querySelector(selector: string): IHTMLELement {
-  const el: IHTMLELement = { innerHtml: '', selector };
+  const el: IHTMLELement = { innerHtml: "", selector };
   return el;
 }
 
@@ -15,7 +15,7 @@ class Component {
 
   constructor(opt: IComponentOpt) {
     this.templateHtml = opt.templateHtml;
-    if (typeof opt.el === 'string') {
+    if (typeof opt.el === "string") {
       this.el = querySelector(opt.el);
     } else {
       this.el = opt.el;
@@ -23,7 +23,7 @@ class Component {
   }
 
   public componentDidMount() {
-    console.log('Component componentDidMount');
+    console.log("Component componentDidMount");
   }
   public setState(nextState: object & { [key: string]: any }) {
     for (const x in nextState) {

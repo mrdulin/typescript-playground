@@ -8,10 +8,8 @@ interface IRequest {
   get(uri: string, options?: IRequestOptions): any;
 }
 
-type PickMethod<T, MethodName extends keyof T> = T[MethodName] extends (
-  ...args: any[]
-) => any
+type PickMethod<T, MethodName extends keyof T> = T[MethodName] extends (...args: any[]) => any
   ? (...args: Parameters<T[MethodName]>) => ReturnType<T[MethodName]>
   : never;
 
-type PostMethodType = PickMethod<IRequest, "post">;
+type PostMethodType = PickMethod<IRequest, 'post'>;

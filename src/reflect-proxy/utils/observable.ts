@@ -26,7 +26,7 @@ function observable(obj, observe) {
         observe();
       }
       return ret;
-    }
+    },
   });
 }
 
