@@ -1,23 +1,22 @@
 {
-  "name": "ts-codelab",
+  "name": "typescript-playground",
   "version": "1.0.0",
   "description": "",
   "main": "",
   "scripts": {
-    "test": "jest --verbose",
-    "test:w": "jest --watch --verbose"
+    "test": "jest --verbose"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrdulin/ts-codelab.git"
+    "url": "git+https://github.com/mrdulin/typescript-playground"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mrdulin/ts-codelab/issues"
+    "url": "https://github.com/mrdulin/typescript-playground/issues"
   },
-  "homepage": "https://github.com/mrdulin/ts-codelab#readme",
+  "homepage": "https://github.com/mrdulin/typescript-playground#readme",
   "devDependencies": {
     "@types/faker": "^4.1.5",
     "@types/jest": "^24.0.4",

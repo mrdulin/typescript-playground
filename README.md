@@ -1,6 +1,6 @@
-# ts codelab
+# TypeScript Playground
 
-## `typescript`简介
+## `TypeScript`简介
 
 - 静态代码分析。为了消除潜在的运行时问题，`ts`被设计成强类型语言，在编译阶段可以进行静态类型检查。`ts`还有一个语言服务层，用来给开发者提供一些工具。例如，生成一些信息给 IDE 或者编辑器提供更好的特性支持，`IntelliSense`或者自动化重构。语言服务支持一系列典型的编辑器操作比如语句自动补全，函数签名提示，代码格式化和突出高亮，着色等。基本的重构功能比如重命名，调试接口辅助功能比如验证断点，还有 TypeScript 特有的功能比如支持增量编译（在命令行上使用--watch）。语言服务是被设计用来有效的处理在一个长期存在的编译上下文中文件随着时间改变的情况；在这样的情况下，语言服务提供了与其它编译器接口不同的角度来处理程序和源文件。
 
@@ -25,13 +25,13 @@
 - 使用`tsc --init`快速生成`tsconfig.json`文件。
 - `tsc`允许项目中有多个`tsconfig.json`文件，这样就可以实现不同目录下使用该目录下的`tsconfig.json`编译器配置文件进行编译。
 
-## 关于`typescript`的第三方库的描述文件`@types/xxx`
+## 关于`TypeScript`的第三方库的描述文件`@types/xxx`
 
-`typescript`最早使用`tsd`作为管理`typescript`应用中描述文件的工具，见[repo](https://github.com/DefinitelyTyped/tsd), 但是由于本身有缺陷和性能问题，被废弃。
+`TypeScript`最早使用`tsd`作为管理`TypeScript`应用中描述文件的工具，见[repo](https://github.com/DefinitelyTyped/tsd), 但是由于本身有缺陷和性能问题，被废弃。
 见[link](https://stackoverflow.com/questions/35598876/why-is-tsd-deprecated)。
-逐渐被`typings`取代。`typescript 2.0`之前（不包括 2.0），使用[Typings](https://github.com/typings/typings)工具来对`typescript`应用中的描述文件进行管理。
+逐渐被`typings`取代。`typescript 2.0`之前（不包括 2.0），使用[Typings](https://github.com/typings/typings)工具来对`TypeScript`应用中的描述文件进行管理。
 
-`typescript 2.0`开始，可以使用`npm`, `yarn`这些包管理工具直接安装第三方描述文件，详见[link](https://tslang.cn/docs/handbook/declaration-files/consumption.html)
+`TypeScript 2.0`开始，可以使用`npm`, `yarn`这些包管理工具直接安装第三方描述文件，详见[link](https://tslang.cn/docs/handbook/declaration-files/consumption.html)
 
 ## FAQ
 
