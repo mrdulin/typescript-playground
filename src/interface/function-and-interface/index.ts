@@ -1,11 +1,16 @@
-import { SearchFunction, IObj } from './@types';
+type SearchFunction = (source: string, subString: string) => boolean;
+
+interface IObj {
+  next(name: string): string;
+  throw?(name: string): string;
+}
 /**
  * 对于函数类型的类型检查来说，函数的参数名不需要与接口里定义的名字相匹配。
  * @param src
  * @param sub
  * @returns {boolean}
  */
-const search: SearchFunction = function(src: string, sub: string): boolean {
+const search: SearchFunction = function (src: string, sub: string): boolean {
   const result = src.search(sub);
   return result > -1;
 };
@@ -13,7 +18,7 @@ const search: SearchFunction = function(src: string, sub: string): boolean {
 const obj: IObj = {
   next(name: string): string {
     return name;
-  }
+  },
 };
 
 export { search, obj };
