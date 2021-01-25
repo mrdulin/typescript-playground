@@ -1,10 +1,14 @@
-const map1: Map<string, string> = new Map<string, string>([['a', 'react'], ['b', 'rxjs'], ['c', 'angular']]);
+const map1: Map<string, string> = new Map<string, string>([
+  ['a', 'react'],
+  ['b', 'rxjs'],
+  ['c', 'angular'],
+]);
 
 console.log(map1.get('a'));
 
 const map2: Map<string, (str: string) => string> = new Map<string, (str: string) => string>([
   ['a', (str: string) => str],
-  ['b', (str: string) => str]
+  ['b', (str: string) => str],
 ]);
 
 const aFn = map2.get('a');
