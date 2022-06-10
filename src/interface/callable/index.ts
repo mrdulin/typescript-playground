@@ -1,4 +1,4 @@
-interface IOverloaded {
+export interface IOverloaded {
   (foo: string): string;
   (foo: number): number;
 }
