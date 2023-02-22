@@ -1,8 +1,9 @@
 import * as t from 'io-ts';
 import * as TE from 'fp-ts/lib/TaskEither';
 import * as T from 'fp-ts/lib/Task';
+import * as Console from 'fp-ts/lib/Console';
 import * as E from 'fp-ts/lib/Either';
-import { flow, pipe } from 'fp-ts/lib/function';
+import { pipe } from 'fp-ts/lib/function';
 import { failure } from 'io-ts/lib/PathReporter';
 
 export interface ApiResponse<Result = any> {
@@ -64,58 +65,43 @@ export const getArticlesByPageService = ({ pagination }: GetArticlesByPageQueryP
     pageSize: pagination.pageSize,
     currentPage: pagination.current,
   };
-  return pipe(
-    reqDTO,
-    GetArticlesByPageRequestDTOCodec.decode,
-    E.mapLeft((errors) => {
-      console.error(`Validation failed for input: ${JSON.stringify(reqDTO, null, 2)}. Error details: ${failure(errors).join('\n')}`);
-      return new Error('parameter invalid');
-    }),
-    TE.fromEither,
-    TE.chain(getArticlesByPageTaskEither),
-  )().then(
-    E.fold(
-      (e) => Promise.reject(e),
-      (res) => Promise.resolve(res),
-    ),
+  return (
+    pipe(
+      reqDTO,
+      GetArticlesByPageRequestDTOCodec.decode,
+      E.mapLeft((errors) => {
+        console.error(`Validation failed for input: ${JSON.stringify(reqDTO, null, 2)}. Error details: ${failure(errors).join('\n')}`);
+        return new Error('parameter invalid');
+      }),
+      TE.fromEither,
+      TE.chain(getArticlesByPageTaskEither),
+    )()
+      // solution 1
+      .then(
+        E.fold(
+          (e) => Promise.reject(e),
+          (res) => Promise.resolve(res),
+        ),
+      )
   );
 };
 
-const PaginationResultCodec = <C extends t.Mixed>(codec: C) =>
-  t.type({
-    resultList: codec,
-    totalItem: t.number,
-  });
+// solution 2
+// async function test1() {
+//   pipe(
+//     await getArticlesByPageService({ pagination: { current: 1, pageSize: 10 } }),
+//     E.match(
+//       (e) => console.error(e),
+//       (res) => console.log(res.result),
+//     ),
+//   );
+// }
 
-const ApiResponseCodec = <C extends t.Mixed>(codec: C) =>
-  t.type({
-    code: t.string,
-    message: t.union([t.string, t.undefined]),
-    result: codec,
-  });
-
-const GetArticlesByPageResponseCodec = ApiResponseCodec(PaginationResultCodec(t.array(ArticleDTOCodec)));
-
-export const decodeApiResponse = (res: ApiResponse<PaginationResult<ArticleDTO>>) => {
-  return pipe(
-    E.of(res),
-    E.chain(flow(ArticleDTOCodec.decode, E.mapLeft(E.toError))),
-    E.fold(
-      (e) => 'no',
-      (res) => 'yes',
-    ),
-  );
-};
-
-const r = decodeApiResponse({
-  code: '0',
-  message: '',
-  result: {
-    resultList: [
-      { id: 1, title: 'test' },
-      { id: 2, title: 'test1' },
-    ],
-    totalItem: 100,
-  },
-});
-console.log('r: ', r);
+// solution 3
+// async function test2() {
+//   await pipe(
+//     getArticlesByPageService({ pagination: { current: 1, pageSize: 10 } }),
+//     TE.orElseFirst((e) => TE.fromIO(Console.error(e))),
+//     TE.chainFirstIOK((res) => Console.log(res.result)),
+//   )();
+// }
