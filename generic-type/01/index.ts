@@ -8,22 +8,22 @@ const ArticleDTOCodec = t.type({
 });
 type ArticleDTO = t.TypeOf<typeof ArticleDTOCodec>;
 
-const PaginationResultCodec = <C extends t.Mixed>(codec: C) =>
+const PaginationResultCodec = <A>(codec: t.Type<A>) =>
   t.type({
     resultList: codec,
     totalItem: t.number,
   });
 
-type PaginationResult<C extends t.Mixed> = t.TypeOf<ReturnType<typeof PaginationResultCodec<C>>>;
+type PaginationResult<A> = t.TypeOf<ReturnType<typeof PaginationResultCodec<A>>>;
 
-const ApiResponseCodec = <C extends t.Mixed>(codec: C) =>
+const ApiResponseCodec = <A>(codec: t.Type<A>) =>
   t.type({
     code: t.string,
     message: t.union([t.string, t.undefined]),
     result: codec,
   });
 
-type ApiResponse<C extends t.Mixed> = t.TypeOf<ReturnType<typeof ApiResponseCodec<C>>>;
+type ApiResponse<A> = t.TypeOf<ReturnType<typeof ApiResponseCodec<A>>>;
 
 const GetArticlesByPageResponseCodec = ApiResponseCodec(PaginationResultCodec(t.array(ArticleDTOCodec)));
 
