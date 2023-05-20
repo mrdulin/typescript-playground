@@ -1,4 +1,4 @@
-import { overloading } from './';
+import { overloading } from '.';
 
 describe('function/overloading test suites', () => {
   it('t-1', () => {

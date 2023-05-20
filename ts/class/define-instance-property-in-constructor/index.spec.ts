@@ -1,4 +1,4 @@
-import { App, HomeComponent, Animal, Sb } from './';
+import { App, HomeComponent, Animal, Sb } from '.';
 
 describe('Typescript Class method and property test suites', () => {
   describe('Class App', () => {

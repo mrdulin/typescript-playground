@@ -1,4 +1,4 @@
-import { Geometry } from './';
+import { Geometry } from '.';
 
 describe('namespace/class-in-namespace test suites', () => {
   let vector: Geometry.IVector2dInterface;

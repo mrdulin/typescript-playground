@@ -1,4 +1,4 @@
-import { add } from './';
+import { add } from '.';
 
 describe('function/rest-parameters test suites', () => {
   it('Test', () => {

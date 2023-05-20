@@ -1,4 +1,4 @@
-import { wrapper } from './';
+import { wrapper } from '.';
 
 describe('generics/anonymous-arrow-function test suites', () => {
   it('Test', () => {

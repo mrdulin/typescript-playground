@@ -1,4 +1,4 @@
-import MathHelper from './';
+import MathHelper from '.';
 
 describe('MathHelper Class Test Suites', () => {
   it('should be return PI value', () => {

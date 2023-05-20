@@ -1,4 +1,4 @@
-import { getUsers, getEntities, getOrders } from './';
+import { getUsers, getEntities, getOrders } from '.';
 import { User, Order } from './models';
 
 describe('function/generic', () => {
@@ -13,7 +13,7 @@ describe('function/generic', () => {
   });
 
   it('getOrders', () => {
-    getOrders(function(orders: Order[]): void {
+    getOrders(function (orders: Order[]): void {
       for (const order of orders) {
         console.log(order.total);
       }
@@ -21,7 +21,7 @@ describe('function/generic', () => {
   });
 
   it('getEntities - 1', () => {
-    getEntities<User>('users', function(users: User[]) {
+    getEntities<User>('users', function (users: User[]) {
       for (const user of users) {
         console.log(user.name);
       }
@@ -29,7 +29,7 @@ describe('function/generic', () => {
   });
 
   it('getEntities - 2', () => {
-    getEntities<Order>('orders', function(orders: Order[]) {
+    getEntities<Order>('orders', function (orders: Order[]) {
       for (const order of orders) {
         console.log(order.total);
       }

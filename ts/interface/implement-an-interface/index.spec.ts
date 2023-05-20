@@ -1,5 +1,5 @@
 import { ClassA, ClassB } from './models';
-import { print } from './';
+import { print } from '.';
 import { IPrintable } from './@types';
 
 describe('interface/implement-an-interface test suites', () => {

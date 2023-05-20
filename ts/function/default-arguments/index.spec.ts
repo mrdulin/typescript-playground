@@ -1,6 +1,6 @@
 import { MemberState, Component } from './models';
 import { IAction } from './@types';
-import { defaultFnArg, memberReducer } from './';
+import { defaultFnArg, memberReducer } from '.';
 
 describe('function/default-arguments test suites', () => {
   it('should get state correctly', () => {
